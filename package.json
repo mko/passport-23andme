@@ -1,0 +1,16 @@
+{
+  "name": "passport-23andme",
+  "version": "0.1.0",
+  "description": "23AndMe Personal Genome API authentication strategy for Passport.",
+  "author": "Michael Owens <mk@mowens.com> (http://mowens.com/)",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mowens/passport-23andme.git"
+  },
+  "main": "./lib/passport-23andme",
+  "dependencies": {
+    "passport-oauth": ">= 0.1.0"
+  },
+  "engines": { "node": ">= 0.4.0" },
+  "keywords": ["passport", "23andme", "twentythreeandme", "genome", "dna", "genotype", "auth", "authn", "authentication", "identity"]
+}
