@@ -19,7 +19,8 @@ consumer key, consumer secret, and callback URL.
     passport.use(new TwentyThreeAndMeStrategy({
         consumerKey: TWENTYTHREEANDME_CONSUMER_KEY,
         consumerSecret: TWENTYTHREEANDME_CONSUMER_SECRET,
-        callbackURL: "http://127.0.0.1:3000/auth/23andme/callback"
+        callbackURL: "http://127.0.0.1:3000/auth/23andme/callback",
+        scope: "basic names haplogroups"
       },
       function(token, tokenSecret, profile, done) {
         User.findOrCreate({ userId: profile.id }, function (err, user) {

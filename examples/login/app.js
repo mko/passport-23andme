@@ -30,7 +30,8 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new TwentyThreeAndMeStrategy({
     clientID: TWENTYTHREEANDME_APP_ID,
     clientSecret: TWENTYTHREEANDME_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/23andme/callback"
+    callbackURL: "http://localhost:3000/auth/23andme/callback",
+    scope: "basic names haplogroups"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
