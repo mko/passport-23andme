@@ -9,6 +9,39 @@ with [23AndMe's Personal Genome API](https://api.23andme.com) using the OAuth 2.
 
 ## Usage
 
+### Requirements
+
+    var passport = require('passport')
+    var TwentThreeAndMeStrategy = require('passport-23andme').Strategy
+    var session = require('express-session')
+
+### Middleware
+
+`session` is no longer bundled with Express and must be installed separately.
+
+    app.use(session({ 
+      secret: 'anything you want here', resave: false, saveUninitialized: true 
+    }))
+    app.use(passport.initialize())
+    app.use(passport.session())
+
+### Model
+
+We will be using a `findorcreate` plugin during configuration. Make sure your User model has at least a `userId` field set.
+
+    // inside your user model
+
+    var findOrCreate = require('mongoose-findorcreate')
+    var userSchema = new mongoose.Schema({
+      userId: String
+    })
+
+    userSchema.plugin(findOrCreate)
+
+    var User = mongoose.model('User', userSchema)
+
+    module.exports = User
+
 #### Configure Strategy
 
 The 23AndMe Personal Genome API authentication strategy authenticates users using a 23AndMe Personal Genome API account and
@@ -17,8 +50,8 @@ credentials and calls `done` providing a user, as well as `options` specifying a
 consumer key, consumer secret, and callback URL.
 
     passport.use(new TwentyThreeAndMeStrategy({
-        consumerKey: TWENTYTHREEANDME_CONSUMER_KEY,
-        consumerSecret: TWENTYTHREEANDME_CONSUMER_SECRET,
+        clientID: TWENTYTHREEANDME_CONSUMER_KEY,
+        clientSecret: TWENTYTHREEANDME_CONSUMER_SECRET,
         callbackURL: "http://127.0.0.1:3000/auth/23andme/callback",
         scope: "basic names haplogroups"
       },
