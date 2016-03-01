@@ -1,6 +1,6 @@
 {
   "name": "passport-23andme",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "23AndMe Personal Genome API authentication strategy for Passport.",
   "author": "Michael Owens <mk@mowens.com> (http://mowens.com/)",
   "repository": {
