@@ -1,5 +1,7 @@
 # Passport-23AndMe
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mko/passport-23andme.svg)](https://greenkeeper.io/)
+
 [Passport](https://github.com/jaredhanson/passport) strategy for authenticating
 with [23AndMe's Personal Genome API](https://api.23andme.com) using the OAuth 2.0 API.
 
